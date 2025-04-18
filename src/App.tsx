@@ -1,8 +1,17 @@
+import { BrowserRouter, Route, Routes } from 'react-router';
+import Home from './routes/Home';
+import Cart from './routes/Cart';
+import Favorites from './routes/Favorites';
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl text-pink-500">Test</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
