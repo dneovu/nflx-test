@@ -1,4 +1,5 @@
 import { ShopItem } from '../../types/ShopItem';
+import SectionTitle from '../common/SectionTitle';
 import CatalogProductCard from './CatalogProductCard';
 
 interface CatalogSectionProps {
@@ -9,7 +10,7 @@ interface CatalogSectionProps {
 const CatalogSection = ({ title, items }: CatalogSectionProps) => {
   return (
     <section>
-      <h2 className="text-secondary mb-5 text-lg font-semibold">{title}</h2>
+      <SectionTitle title={title} />
       <ul className="flex flex-wrap gap-4">
         {items.map((item) => (
           <li key={item.id}>

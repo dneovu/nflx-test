@@ -9,9 +9,9 @@ const CatalogProductCard = ({
   imgSrc,
 }: ShopItem) => {
   return (
-    <article className="flex min-h-[407px] min-w-[350px] flex-col justify-between rounded-2xl bg-white p-5 text-lg font-semibold">
+    <article className="flex min-h-[407px] min-w-[350px] flex-col justify-between rounded-2xl bg-white p-5 text-lg font-semibold shadow-md">
       <div className="flex min-h-56 w-full items-center justify-center select-none">
-        <img src={imgSrc} alt="What" width={220} />
+        <img src={imgSrc} alt={title} width={220} />
       </div>
       <div className="flex justify-between">
         <div className="flex flex-col gap-6">
