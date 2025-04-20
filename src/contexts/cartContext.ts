@@ -1,15 +1,17 @@
 import { createContext, useContext } from 'react';
-import { CartStorageItem } from '../types/CartStorageItem';
+import { CartItem } from '../types/CartItem';
 
 interface CartContext {
-  cartItems: CartStorageItem[];
+  cartItems: CartItem[];
   totalQuantity: number;
+  totalPrice: number;
   addToCart: (id: number) => void;
 }
 
 const defaultCartContext: CartContext = {
   cartItems: [],
   totalQuantity: 0,
+  totalPrice: 0,
   addToCart: () => {},
 };
 

@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
-import { CartStorageItem } from '../types/CartStorageItem';
 import { CartContext } from './cartContext';
+import { CartItem } from '../types/CartItem';
+import { HEADPHONES } from '../data/shopItems';
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cartItems, setCartItems] = useState<CartStorageItem[]>([
+  const [cartItems, setCartItems] = useState<CartItem[]>([
     ...JSON.parse(sessionStorage.getItem('cartItems') || '[]'),
   ]);
-  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  // для отображения кол-ва у иконки и суммы в итого
+  let totalQuantity = 0;
+  let totalPrice = 0;
+  cartItems.forEach((item) => {
+    totalQuantity += item.quantity;
+    totalPrice += item.price * item.quantity;
+  });
 
   useEffect(() => {
     sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -28,12 +35,25 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         }),
       );
     } else {
-      setCartItems((prev) => [...prev, { id, quantity: 1 }]);
+      const itemToAdd = HEADPHONES.find((item) => item.id === id);
+      if (itemToAdd) {
+        const cartItem: CartItem = {
+          id: itemToAdd.id,
+          title: itemToAdd.title,
+          price: itemToAdd.price,
+          imgSrc: itemToAdd.imgSrc,
+          quantity: 1,
+        };
+
+        setCartItems((prev) => [...prev, cartItem]);
+      }
     }
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, totalQuantity, addToCart }}>
+    <CartContext.Provider
+      value={{ cartItems, totalQuantity, totalPrice, addToCart }}
+    >
       {children}
     </CartContext.Provider>
   );
