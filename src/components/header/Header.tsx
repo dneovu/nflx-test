@@ -2,8 +2,11 @@ import Favs from '../../assets/FavsIcon.svg?react';
 import Cart from '../../assets/CartIcon.svg?react';
 import HeaderLink from './HeaderLink';
 import { NavLink } from 'react-router';
+import { useCartContext } from '../../contexts/cartContext';
 
 const Header = () => {
+  const { totalQuantity } = useCartContext();
+
   return (
     <header className="flex items-center justify-between py-4">
       <NavLink to="/">
@@ -18,7 +21,7 @@ const Header = () => {
             <HeaderLink linkTo="/favorites" itemCount={2} Svg={Favs} />
           </li>
           <li>
-            <HeaderLink linkTo="/cart" itemCount={1} Svg={Cart} />
+            <HeaderLink linkTo="/cart" itemCount={totalQuantity} Svg={Cart} />
           </li>
         </ul>
       </nav>

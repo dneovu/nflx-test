@@ -1,13 +1,19 @@
 import Star from '../../assets/StarIcon.svg?react';
+import { useCartContext } from '../../contexts/cartContext';
 import { ShopItem } from '../../types/ShopItem';
 
+type CatalogProductCardProps = Omit<ShopItem, 'type'>;
+
 const CatalogProductCard = ({
+  id,
   title,
   price,
   prevPrice,
   rating,
   imgSrc,
-}: ShopItem) => {
+}: CatalogProductCardProps) => {
+  const { addToCart } = useCartContext();
+
   return (
     <article className="flex min-h-[407px] min-w-[350px] flex-col justify-between rounded-2xl bg-white p-5 text-lg font-semibold shadow-md">
       <div className="flex min-h-56 w-full items-center justify-center select-none">
@@ -28,7 +34,10 @@ const CatalogProductCard = ({
               {prevPrice} ₽
             </p>
           )}
-          <button className="text-primary hover:text-accent cursor-pointer">
+          <button
+            className="text-primary hover:text-accent cursor-pointer"
+            onClick={() => addToCart(id)}
+          >
             Купить
           </button>
         </div>

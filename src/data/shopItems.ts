@@ -8,6 +8,7 @@ export const HEADPHONES: ShopItem[] = [
     prevPrice: 3527,
     rating: 4.7,
     imgSrc: '/assets/products/apple_byz.png',
+    type: 'wired',
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const HEADPHONES: ShopItem[] = [
     price: 2927,
     rating: 4.7,
     imgSrc: '/assets/products/apple_earpods.png',
+    type: 'wired',
   },
   {
     id: 3,
@@ -22,15 +24,14 @@ export const HEADPHONES: ShopItem[] = [
     price: 8920,
     rating: 4.9,
     imgSrc: '/assets/products/apple_mega.png',
+    type: 'wired',
   },
-];
-
-export const WIRELESS_HEADPHONES: ShopItem[] = [
   {
     id: 4,
     title: 'Apple AirPods',
     price: 18320,
     rating: 4.8,
     imgSrc: '/assets/products/apple_airpods.png',
+    type: 'wireless',
   },
 ];

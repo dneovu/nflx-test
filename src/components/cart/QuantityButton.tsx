@@ -1,6 +1,6 @@
 interface QuantityButtonProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const QuantityButton = ({ text, onClick }: QuantityButtonProps) => {

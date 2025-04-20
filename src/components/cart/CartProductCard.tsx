@@ -1,19 +1,7 @@
-import { useState } from 'react';
-import { ShopItem } from '../../types/ShopItem';
 import QuantityButton from './QuantityButton';
+import { CartItem } from '../../types/CartItem';
 
-interface CartProductCardProps extends Omit<ShopItem, 'prevPrice' | 'rating'> {
-  quantity: number;
-}
-
-const CartProductCard = ({
-  title,
-  price,
-  imgSrc,
-  quantity,
-}: CartProductCardProps) => {
-  const [curQuantity, setCurQuantity] = useState(quantity);
-
+const CartProductCard = ({ title, price, imgSrc, quantity }: CartItem) => {
   return (
     <article className="flex max-w-158 flex-col gap-4 rounded-2xl bg-white p-6 shadow-md sm:min-w-158">
       <div className="flex items-center gap-6">
@@ -27,18 +15,11 @@ const CartProductCard = ({
       </div>
       <div className="flex items-center justify-between pl-3.5">
         <div className="flex gap-6">
-          <QuantityButton
-            text="−"
-            onClick={() => setCurQuantity((prev) => prev - 1)}
-          />
+          <QuantityButton text="−" />
           <div className="flex w-3 justify-center">
-            <span>{curQuantity}</span>
+            <span>{quantity}</span>
           </div>
-
-          <QuantityButton
-            text="+"
-            onClick={() => setCurQuantity((prev) => prev + 1)}
-          />
+          <QuantityButton text="+" />
         </div>
         <p className="text-primary font-semibold">{price * quantity} ₽</p>
       </div>

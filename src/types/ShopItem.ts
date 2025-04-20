@@ -5,4 +5,5 @@ export type ShopItem = {
   prevPrice?: number;
   rating: number;
   imgSrc: string;
+  type: 'wired' | 'wireless';
 };
