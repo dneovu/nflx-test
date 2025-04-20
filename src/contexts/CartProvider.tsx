@@ -50,9 +50,38 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const changeQuantity = (id: number, value: number) => {
+    setCartItems(
+      cartItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + value,
+          };
+        }
+        return item;
+      }),
+    );
+  };
+
+  const deleteFromCart = (id: number) => {
+    const updatedItems = cartItems.filter((item) => item.id !== id);
+
+    if (updatedItems) {
+      setCartItems(updatedItems);
+    }
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, totalQuantity, totalPrice, addToCart }}
+      value={{
+        cartItems,
+        totalQuantity,
+        totalPrice,
+        addToCart,
+        deleteFromCart,
+        changeQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

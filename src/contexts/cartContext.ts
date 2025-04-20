@@ -6,6 +6,8 @@ interface CartContext {
   totalQuantity: number;
   totalPrice: number;
   addToCart: (id: number) => void;
+  deleteFromCart: (id: number) => void;
+  changeQuantity: (id: number, value: number) => void;
 }
 
 const defaultCartContext: CartContext = {
@@ -13,6 +15,8 @@ const defaultCartContext: CartContext = {
   totalQuantity: 0,
   totalPrice: 0,
   addToCart: () => {},
+  deleteFromCart: () => {},
+  changeQuantity: () => {},
 };
 
 export const CartContext = createContext<CartContext>(defaultCartContext);
