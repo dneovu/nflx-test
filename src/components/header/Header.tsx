@@ -18,7 +18,7 @@ const Header = () => {
       <nav aria-label="Основная навигация">
         <ul className="flex items-center gap-6">
           <li>
-            <HeaderLink linkTo="/favorites" itemCount={2} Svg={Favs} />
+            <HeaderLink linkTo="/favorites" itemCount={0} Svg={Favs} />
           </li>
           <li>
             <HeaderLink linkTo="/cart" itemCount={totalQuantity} Svg={Cart} />

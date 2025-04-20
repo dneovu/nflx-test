@@ -6,7 +6,9 @@ const Favorites = () => {
   return (
     <PageWrapper>
       <Header />
-      <div>Favorites</div>
+      <main className="flex-auto">
+        <h1>Favorites</h1>
+      </main>
       <Footer />
     </PageWrapper>
   );

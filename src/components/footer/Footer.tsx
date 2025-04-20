@@ -6,7 +6,7 @@ import WhatsappIcon from '../../assets/WhatsappIcon.svg?react';
 
 const Footer = () => {
   return (
-    <footer className="mt-5 flex w-full justify-between rounded-2xl bg-white p-6">
+    <footer className="mt-5 flex w-full flex-wrap justify-between gap-7 rounded-2xl bg-white p-6">
       <NavLink to="/">
         <h2 className="hover:text-accent text-2xl font-bold uppercase">
           Qpick
@@ -31,7 +31,7 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between gap-2.5">
         <NavLink to="#">
           <p className="hover:text-accent">Условия сервиса</p>
         </NavLink>

@@ -4,7 +4,7 @@ interface PageWrapperProps {
 
 const PageWrapper = ({ children }: PageWrapperProps) => {
   return (
-    <div className="mx-auto mb-5 h-full max-w-[1440px] px-4 lg:px-44">
+    <div className="mx-auto mb-5 flex h-screen max-w-[1440px] flex-col px-4 lg:px-44">
       {children}
     </div>
   );

@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <PageWrapper>
       <Header />
-      <main className="mt-5">
+      <main className="mt-5 flex-auto">
         <h1 className={`text-primary mb-5 text-lg font-semibold`}>Корзина</h1>
         {totalQuantity > 0 ? (
           <div className="flex flex-wrap justify-between gap-4">
