@@ -4,15 +4,20 @@ import HeaderLink from './HeaderLink';
 import { NavLink } from 'react-router';
 import { useCartContext } from '../../contexts/cartContext';
 
-const Header = () => {
+interface HeaderProps {
+  headingLevel?: 'h1' | 'h2';
+}
+
+const Header = ({ headingLevel = 'h2' }: HeaderProps) => {
   const { totalQuantity } = useCartContext();
+  const HeadingTag = headingLevel;
 
   return (
     <header className="flex items-center justify-between py-4">
       <NavLink to="/">
-        <h2 className="hover:text-accent text-2xl font-bold uppercase">
+        <HeadingTag className="hover:text-accent text-2xl font-bold uppercase">
           Qpick
-        </h2>
+        </HeadingTag>
       </NavLink>
 
       <nav aria-label="Основная навигация">

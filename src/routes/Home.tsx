@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      <Header />
+      <Header headingLevel="h1" />
       <main className="mt-5 flex-auto space-y-5">
         <CatalogSection title="Наушники" items={WIRED_HEADPHONES} />
         <CatalogSection
